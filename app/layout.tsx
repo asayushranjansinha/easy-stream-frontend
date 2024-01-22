@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import HeaderMain from "@/components/shared/main-header";
+import { ThemeProvider } from "@/components/providers/theme-provider";
+import SidebarMain from "@/components/shared/sidebar";
+import { ModalProvider } from "@/components/providers/modal-provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,7 +20,21 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <ModalProvider />
+          <div>
+            <HeaderMain />
+            <SidebarMain />
+            <main className="ml-0 md:ml-60 p-4">{children}</main>
+          </div>
+        </ThemeProvider>
+      </body>
     </html>
   );
 }
