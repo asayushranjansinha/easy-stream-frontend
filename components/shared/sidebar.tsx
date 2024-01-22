@@ -20,10 +20,7 @@ const SidebarMain = () => {
       </Accordion>
       <div className="mt-4 flex flex-col items-center">
         <span>Made with</span>
-        <IconWrapper
-          icon="ri:heart-fill"
-          color="red"
-        />
+        <IconWrapper icon="ri:heart-fill" color="red" />
         <span>By Ayush Ranjan</span>
       </div>
     </div>
@@ -49,7 +46,10 @@ function SidebarMenuItems({ item }: SidebarMenuItemsProps) {
           <AccordionContent>
             <ul className="flex flex-col gap-2 ml-8">
               {item.subItems?.map((subitem) => (
-                <li className="w-full flex items-center gap-4 p-1 font-medium hover:bg-secondary rounded-md transition-all">
+                <li
+                  key={subitem.name}
+                  className="w-full flex items-center gap-4 py-1 px-2 font-medium hover:bg-secondary rounded-md transition-all"
+                >
                   <IconWrapper icon={subitem.icon} height="28" width="28" />
                   <span className="font-medium">{subitem.name}</span>
                 </li>

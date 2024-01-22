@@ -5,6 +5,7 @@ import HeaderMain from "@/components/shared/main-header";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import SidebarMain from "@/components/shared/sidebar";
 import { ModalProvider } from "@/components/providers/modal-provider";
+import HeaderMobile from "@/components/shared/header-mobile";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -30,6 +31,7 @@ export default function RootLayout({
           <ModalProvider />
           <div>
             <HeaderMain />
+            <HeaderMobile />
             <SidebarMain />
             <main className="ml-0 md:ml-60 p-4">{children}</main>
           </div>
